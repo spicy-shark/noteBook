@@ -4,10 +4,10 @@
 
 > 本章内容：
 >
-> 	- Spring的bean容器
-> 	- 介绍Spring的核心模块
-> 	- 更为强大的Spring生态系统
-> 	- Spring的新功能
+> - Spring的bean容器
+> - 介绍Spring的核心模块
+> - 更为强大的Spring生态系统
+> - Spring的新功能
 
 ### 1.1	简化Java开发
 
@@ -20,7 +20,7 @@
 
 #### 1.1.1	激发POJO的潜能
 
-POJO（Plain Ordinary Java Object）——一个简单普通的Java类，Spring的非侵入式编程模型意味着这个类在Spring应用和非Spring应用中都可以发挥同样的作用。Spring赋予POJO魔力的方式之一就是通过DI来装配它们。
+POJO（Plain Ordinary Java Object）——简单普通的Java类，Spring的非侵入式编程模型意味着这个类在Spring应用和非Spring应用中都可以发挥同样的作用。Spring赋予POJO魔力的方式之一就是通过DI来装配它们。
 
 #### 1.1.2	依赖注入
 
