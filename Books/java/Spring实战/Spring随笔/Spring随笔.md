@@ -44,3 +44,46 @@ Spring在内存中表示这些配置元信息的方式就是BeanDefination，这
 Spring通过BeanDefinationReader将配置元信息加载到内存生成相应的BeanDefination之后，就将其注册到BeanDefinationRegistry中，它是一种键值对的像是，通过特定的Bean
 
 定义的id，映射到相应的BeanDefination。
+
+###### 4.BeanFactoryPostPreocessor
+
+BeanFactoryPostProcessor是容器启动阶段Spring提供的一个扩展点，主要负责对注册到BeanDefinationRegistry中的一个个的BeanDefination进行一定程度上的修改与替换。例如我们的配置元信息中有些可能会修改的配置信息散落到各处，不够灵活，修改相应配置的时候比较麻烦，这时我们可以使用占位符的方式来配置。例如配置Jdbc的DataSource连接的时候可以这样配置：
+
+```xml
+<bean id="dataSource"  
+    class="org.apache.commons.dbcp.BasicDataSource"  
+    destroy-method="close">  
+    <property name="maxIdle" value="${jdbc.maxIdle}"></property>  
+    <property name="maxActive" value="${jdbc.maxActive}"></property>  
+    <property name="maxWait" value="${jdbc.maxWait}"></property>  
+    <property name="minIdle" value="${jdbc.minIdle}"></property>  
+  
+    <property name="driverClassName"  
+        value="${jdbc.driverClassName}">  
+    </property>  
+    <property name="url" value="${jdbc.url}"></property>  
+  
+    <property name="username" value="${jdbc.username}"></property>  
+    <property name="password" value="${jdbc.password}"></property>  
+</bean>
+```
+
+BeanFactoryPostProcessor会对注册到BeanDefinationRegistry中的BeanDefination做最后的修改，替换 `$`占位符为配置文件中的真实数据。
+
+## Spring的AOP理解
+
+AOP，一般称为面向切面，作为面向对象的一种补充，**用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块**，这个模块被命名为“切面”（Aspect），减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。
+
+### [代理模式](https://www.cnblogs.com/qiyuanc/p/Spring_Proxy.html)
+
+#### 静态代理
+
+**定义：为其他对象提供一种代理以控制对这个对象的访问。**
+
+![](image/Spring随笔/1652363234930.png)
+
+- Subject抽象角色：抽象主题类可以是抽象类也可以是接口，是一个最普通的业务类型定义；
+- RealSubjest具体角色：也叫做被委托角色、被代理角色，是业务逻辑的具体执行者；
+- Proxy代理角色：也叫做委托类、代理类。它负责对真是角色的应用，把所有抽象主题类定义的方法限制委托给真实主题角色实现，并且在真实主题角色处理完毕后做预处理和善后工作。
+
+#### 动态代理
