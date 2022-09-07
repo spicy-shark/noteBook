@@ -12,7 +12,7 @@ rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 
 网上教程还说需要重启rabbitmq服务，但我貌似没有重启就生效了。。。
 
-登录管理页面在 `Add Exchanges`下出现 `x-delay-message`类型，说明配置成功！
+登录管理页面,在 `Add a new exchange`下出现 `x-delay-message`类型，说明配置成功！
 
 ![1656314571699](image/rabbitmq延迟消息插件配置与使用/1656314571699.png)
 

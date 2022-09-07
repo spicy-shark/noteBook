@@ -95,3 +95,11 @@ Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动�
   ————————————————
   版权声明：本文为CSDN博主「张维鹏」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
   原文链接：https://blog.csdn.net/a745233700/article/details/80959716
+
+## @Configuration/@Component/@Bean
+
+- @Component注解表明一个类会作为组件，并告知Spring要为这个类创建Bean。
+- @Bean注解告诉Spring这个方法会返回一个对象，这个对象要注册为Spring应用上下文中的Bean。通常方法体中包含了最终产生Bean实例的逻辑。用于显式声明单个Bean，而不是让Spring像上面那样自动执行它。它将Bean声明与类定义分离，并允许您精确地创建和配置Bean。另外@Bean注解的方法返回值是对象，可以在方法中为对象设置属性。
+- @Configuration即用来替代Spring配置文件的，它就是一个@Component组件，接收一个value值也就是Bean的名字，value可以不填。
+
+###
