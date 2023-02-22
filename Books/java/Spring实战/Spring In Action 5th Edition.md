@@ -14,7 +14,7 @@ Spring自动配置能够自动发现应用类路径下的组件并将它们创�
 
 #### 1.2.2 检查Spring项目结构
 
-应用源代码在`src/main/java`中，测试代码在`src/test/java`中，非Java的资源放到了`src/mian/resources`。项目结构中：
+应用源代码在 `src/main/java`中，测试代码在 `src/test/java`中，非Java的资源放到了 `src/mian/resources`。项目结构中：
 
 - mvnw和mvnw.cmd：这是Maven包装器（wrapper）脚本。借助这些脚本，即使你的机器上没有安装Maven，也可以构建项目。
 - pom.xml：这是Maven构建规范。
@@ -78,7 +78,7 @@ Spring Boot建议使用Thymeleaf。
 
 #### 1.3.2 定义视图
 
-展现页面Logo的`<img>`标签，使用了Thymeleaf的th:src属性和@{...}表达式，以便于引用相对于上下文路径的图片。
+展现页面Logo的 `<img>`标签，使用了Thymeleaf的th:src属性和@{...}表达式，以便于引用相对于上下文路径的图片。
 
 #### 1.3.3 测试控制器
 
@@ -176,8 +176,6 @@ Spring Integration和Spring Batch为基于Spring的应用程序提供了一些�
 - Spring Boot构建在Spring之上，通过简化依赖管理、自动配置和运行时间洞察，使Spring更加易用。
 - Spring应用可以使用Spring Initializr进行初始化。Spring Initializr使基于Web的应用，并且为大多数Java开发环境提供了原生支持。
 - 在Spring应用上下文中，组件（通常称为bean）既可以使用Java或XML显示声明。也可以通过组件扫描发现，还可以使用Spring Boot自动配置功能实现自动化配置。
-
-
 
 ## 第二章 开发Web应用
 
@@ -655,37 +653,37 @@ protected void configure(HttpSecurity http) throws Exception {
 
 声明在前面的安全规则比后面声明的规则有更高的优先级。
 
-| 方法                       | 能够做什么                                                   |
-| :------------------------- | :----------------------------------------------------------- |
-| access(String)             | 如果给定的SpEL表达式计算结果为true，就允许访问               |
-| anonymous()                | 允许匿名用户访问                                             |
-| authenticated()            | 允许认证过的用户访问                                         |
-| denyAll()                  | 无条件拒绝所有访问                                           |
+| 方法                       | 能够做什么                                                        |
+| :------------------------- | :---------------------------------------------------------------- |
+| access(String)             | 如果给定的SpEL表达式计算结果为true，就允许访问                    |
+| anonymous()                | 允许匿名用户访问                                                  |
+| authenticated()            | 允许认证过的用户访问                                              |
+| denyAll()                  | 无条件拒绝所有访问                                                |
 | fullyAuthenticated()       | 如果用户是完整认证的（不是通过Remember-me功能认证的），就允许访问 |
-| hasAnyAuthority(String...) | 如果用户具备给定权限中的某一个，就允许访问                   |
-| hasAnyRole(String...)      | 如果用户具备给定角色中的某一个，就允许访问                   |
-| hasAuthority()             | 如果用户具备给定权限，就允许访问                             |
-| hasIpAddress(String)       | 如果请求来自给定IP地址就允许访问                             |
-| hasRole(String)            | 如果用户具备给定角色，就允许访问                             |
-| not()                      | 对其他访问方法的结果求反                                     |
-| permitAll()                | 无条件允许访问                                               |
-| rememberMe()               | 如果用户是通过Remember-me功能认证的，就允许访问              |
+| hasAnyAuthority(String...) | 如果用户具备给定权限中的某一个，就允许访问                        |
+| hasAnyRole(String...)      | 如果用户具备给定角色中的某一个，就允许访问                        |
+| hasAuthority()             | 如果用户具备给定权限，就允许访问                                  |
+| hasIpAddress(String)       | 如果请求来自给定IP地址就允许访问                                  |
+| hasRole(String)            | 如果用户具备给定角色，就允许访问                                  |
+| not()                      | 对其他访问方法的结果求反                                          |
+| permitAll()                | 无条件允许访问                                                    |
+| rememberMe()               | 如果用户是通过Remember-me功能认证的，就允许访问                   |
 
 我们还可以使用access()方法，通过为其提供SpEL表达式来声明更丰富的安全规则。Spring Security扩展了SpEL，包含了多个安全相关的值和函数：
 
-| 安全表达式                | 计算结果                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| authentication            | 用户的认证对象                                               |
-| denyAll                   | 结果始终为false                                              |
-| hasAnyRole(list of roles) | 如果用户被授予了列表中任意的指定角色，结果为true             |
-| hasRole(role)             | 如果用户被授予了指定角色，结果为true                         |
-| hasIpAddress(IP Address)  | 如果请求来自给定IP地址，结果为true                           |
-| isAnonymous()             | 如果当前用户为匿名用户结果为true                             |
-| isAuthenticated()         | 如果当前用户进行了认证，结果为true                           |
+| 安全表达式                | 计算结果                                                          |
+| ------------------------- | ----------------------------------------------------------------- |
+| authentication            | 用户的认证对象                                                    |
+| denyAll                   | 结果始终为false                                                   |
+| hasAnyRole(list of roles) | 如果用户被授予了列表中任意的指定角色，结果为true                  |
+| hasRole(role)             | 如果用户被授予了指定角色，结果为true                              |
+| hasIpAddress(IP Address)  | 如果请求来自给定IP地址，结果为true                                |
+| isAnonymous()             | 如果当前用户为匿名用户结果为true                                  |
+| isAuthenticated()         | 如果当前用户进行了认证，结果为true                                |
 | isFullyAuthenticated()    | 如果用户是完整认证的（不是通过Remember-me功能认证的），结果为true |
-| isRememberMe()            | 如果用户是通过Remember-me功能认证的，结果为true              |
-| permitAll()               | 结果始终为true                                               |
-| principal                 | 用户的principal对象                                          |
+| isRememberMe()            | 如果用户是通过Remember-me功能认证的，结果为true                   |
+| permitAll()               | 结果始终为true                                                    |
+| principal                 | 用户的principal对象                                               |
 
 使用SpEL可以实现各种各样的安全性限制。
 
@@ -701,7 +699,7 @@ protected void configure(HttpSecurity http) throws Exception {
     .antMatchers("/design", "/orders")
     .access("hasRole('ROLE_USER')")
     .antMatchers("/", "/**").access("permitAll")
-    
+  
     .and()
     .formLogin()
     .loginPage("/login")
